@@ -14,6 +14,15 @@ presubmits:
       - image: golang:1.20
         command:
         - scripts/test-infra/verify.sh
+        volumeMounts:
+        - name: codecov-token
+          mountPath: /etc/codecov
+          readOnly: true
+      volumes:
+      - name: codecov-token
+        secret:
+          defaultMode: 420
+          secretName: nfd-codecov-token
   - name: pull-node-feature-discovery-verify-docs-master
     run_if_changed: "^docs/"
     branches:
