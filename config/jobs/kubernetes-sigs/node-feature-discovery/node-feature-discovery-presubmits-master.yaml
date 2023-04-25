@@ -19,7 +19,7 @@ presubmits:
           valueFrom:
             secretKeyRef:
               name: nfd-creds
-              key: codecov-token       
+              key: codecov-token     
   - name: pull-node-feature-discovery-verify-docs-master
     run_if_changed: "^docs/"
     branches:
